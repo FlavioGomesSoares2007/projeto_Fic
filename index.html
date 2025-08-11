@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="no">Login</title>
+    <style>
+        @charset "UTF-8";
+
+        title{
+            translate: "no";
+        }
+        body{
+            background-color: #060e81;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .login-box{
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            display: grid;
+            gap: 10px;
+        }
+        form{
+            display: grid;
+            gap: 5px;
+        }
+        h2{
+            text-align: center;
+            color: #060e81;
+        }
+        input{
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input:hover{
+            border-color: #060e81;
+            outline: none;
+        }
+        input[type="submit"]{
+            background-color: #060e81;
+            color: white;
+            cursor: pointer;
+        
+        }
+        a{
+            text-decoration: none;
+            color: #060e81;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        translate: "no";
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>  
+             <span translate="no">login</span>
+        </h2>
+        <form action="login.php" method="post"  translate="no">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="idcpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required placeholder="000.000.000-00">
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="idsenha" required placeholder="digite sua senha">
+        <input type="submit" value="Login" >
+        </form>
+        <p> <a href="formulario.html">ainda não tem uma conta? cadastre-se.</a></p>
+       
+    </div>
+</body>
+</html>
