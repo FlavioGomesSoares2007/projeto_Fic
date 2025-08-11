@@ -1,40 +1,54 @@
-<?php
-    session_start();
 
-    $host = "turntable.proxy.rlwy.net:48410";
-    $user = "root";
-    $password = "tevZqPrdKTwISQKKcknhodLWHRhGNPWo";
-    $database = "projetoFic";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="estilos/boas.css">
+</head>
+<body>
+     <div class="div">
+            <?php
+            
+            session_start();
 
-    $conexao = new mysqli($host, $user, $password, $database);
+            $host = "turntable.proxy.rlwy.net:48410";
+            $user = "root";
+            $password = "tevZqPrdKTwISQKKcknhodLWHRhGNPWo";
+            $database = "projetoFic";
 
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
+            $conexao = new mysqli($host, $user, $password, $database);
 
-    // Busca usuário pelo CPF
-    $sql = "SELECT * FROM alunos WHERE cpf = ?";
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("s", $cpf);
-    $stmt->execute();
-    $result = $stmt->get_result();
+            $cpf = $_POST['cpf'];
+            $senhaDigitada = $_POST['senha'];
 
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-        $hash = $user['senha'];
+            // Busca usuário pelo CPF
+            $sql = "SELECT id, nome, senha FROM alunos WHERE cpf = ?";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param("s", $cpf);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-        // Verifica a senha
-        if (password_verify($senha, $hash)) {
-            echo "Login efetuado com sucesso! Bem-vindo, " . htmlspecialchars($user['nome']);
-            // Aqui pode redirecionar para página privada:
-            // header("Location: dashboard.php");
-            // exit();
-        } else {
-            echo "Senha incorreta!";
-        }
-    } else {
-        echo "Usuário não encontrado!";
-    }
+            if ($result->num_rows === 1) {
+                $user = $result->fetch_assoc();
 
-    $stmt->close();
-    $conexao->close();
-?>
+                // Verifica se a senha digitada bate com o hash
+                if (password_verify($senhaDigitada, $user['senha'])) {
+                    $_SESSION['usuario_id'] = $user['id'];
+                    $_SESSION['usuario_nome'] = $user['nome'];
+                    echo "<p>Bem-vindo, " . htmlspecialchars($user['nome']) . " 😎</p>";
+                } else {
+                    echo "<p>Senha incorreta!</p>";
+                }
+            } else {
+                echo "<p>Usuário não encontrado!</p>";
+            }
+
+            $stmt->close();
+            $conexao->close();
+        ?>
+        <a href="#">continuar</a>
+    </div>
+</body>
+</html>

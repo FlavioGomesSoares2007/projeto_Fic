@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilos/formulario.css">
+
     <style>
         @charset "UTF-8";
 
@@ -57,9 +57,11 @@ a{
             $sexo = $_POST['genero'];
 
             if ($senha !== $csenha) {
-                echo "As senhas não coincidem!";
+                echo "<p><strong>As senhas não coincidem!</strong></p>" . '<a href="formulario.html">Voltar</a>';
                 exit;
             }
+
+            
         
             $sql_check = "SELECT * FROM alunos WHERE cpf = ? OR gmail = ?";
             $stmt_check = $conexao->prepare($sql_check);
@@ -68,7 +70,7 @@ a{
             $result = $stmt_check->get_result();
 
             if ($result->num_rows > 0) {
-                echo " esse CPF ou Gmail já foi cadastrado!";
+                echo " <p><strong>Esse CPF ou Gmail já foi cadastrado!</strong></p>" . '<a href="formulario.html">Voltar</a>';
                 exit;
             }
 
@@ -76,21 +78,21 @@ a{
 
             $sql_insert = "INSERT INTO alunos (  nome, gmail, cpf, telefone, senha, data_nascimento, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt_insert = $conexao->prepare($sql_insert);
-            $stmt_insert->bind_param("sssiiss", $nome, $gmail, $cpf, $telefone, $senha_hash, $data_nascimento, $sexo);
+            $stmt_insert->bind_param("sssisss", $nome, $gmail, $cpf, $telefone, $senha_hash, $data_nascimento, $sexo);
 
             if ($stmt_insert->execute()) {
-                echo "Cadastro realizado com sucesso!";
+                echo "<p><strong>Cadastro realizado com sucesso!</strong></p>" . '<a href="index.html">Voltar</a>';
             } else {
-                echo "Erro ao cadastrar: " . $stmt_insert->error;
+                echo "<p><strong>Erro ao cadastrar:</strong></p> " .'<a href="formulario.html">Voltar</a>' . $stmt_insert->error;
             }
 
             $stmt_check->close();
             $stmt_insert->close();
             $conexao->close();
         ?>
-        <div>
-            <a href="index.html">Voltar</a>
-        </div>
+
+            
+
     </div>
 </body>
 </html>
