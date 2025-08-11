@@ -72,11 +72,11 @@ a{
                 exit;
             }
 
-            
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
             $sql_insert = "INSERT INTO alunos (  nome, gmail, cpf, telefone, senha, data_nascimento, sexo) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt_insert = $conexao->prepare($sql_insert);
-            $stmt_insert->bind_param("sssiiss", $nome, $gmail, $cpf, $telefone, $senha, $data_nascimento, $sexo);
+            $stmt_insert->bind_param("sssiiss", $nome, $gmail, $cpf, $telefone, $senha_hash, $data_nascimento, $sexo);
 
             if ($stmt_insert->execute()) {
                 echo "Cadastro realizado com sucesso!";
