@@ -3,81 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title translate="no">Login</title>
-    <style>
-        @charset "UTF-8";
-
-        title{
-            translate: "no";
-        }
-        body{
-            background-color: #060e81;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .login-box{
-            background-color: white;
-            width: 400px;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-            display: grid;
-            gap: 10px;
-        }
-        form{
-            display: grid;
-            gap: 5px;
-        }
-        h2{
-            text-align: center;
-            color: #060e81;
-        }
-        input{
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input:hover{
-            border-color: #060e81;
-            outline: none;
-        }
-        input[type="submit"]{
-            background-color: #060e81;
-            color: white;
-            cursor: pointer;
-        
-        }
-        a{
-            text-decoration: none;
-            color: #060e81;
-            text-align: center;
-            display: block;
-            margin-top: 10px;
-        translate: "no";
-        }
-        a:hover{
-            text-decoration: underline;
-        }
-    </style>
+    <title>FIC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="fic.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="login-box">
-        <h2>  
-             <span translate="no">login</span>
-        </h2>
-        <form action="login.php" method="post"  translate="no">
-        <label for="cpf">CPF:</label>
-        <input type="text" id="idcpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required placeholder="000.000.000-00">
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="idsenha" required placeholder="digite sua senha">
-        <input type="submit" value="Login" >
-        </form>
-        <p> <a href="formulario.html">ainda não tem uma conta? cadastre-se.</a></p>
-       
+    
+
+    
+        <div class="particulas"></div>
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">inicio</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">sobre</a>
+            </li>
+            
+            <li>
+                <a href="#logar" class="menu-link">logar</a>
+            </li>
+
+        </ul>
+    </nav>
+    <main id="inicio" class="cabecalho">
+        <img src="fic.png" alt="kekel" class="fotoperfil">
+        <h1>FIC</h1>
+        <p class="cst">E.E.I.T frascivo ivo cavalcante</p>
+    </main>
+
+<section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">sobre o site</h2>
+    <div  class="sobre-caixa">
+        <p class="sobre-paragrafo">
+            este site foi desenvolvido por um grupo de alunos do fracisco ivo com o objetivo de facilitar e tornar mais interativo o nosso estudo. aqui reunimos informações importantes recursos e conteudos que podem ajudar no aprendizado de forma mais pratica e acessivel com esse site feito de estudante para estudante.
+        </p>
     </div>
+</section>
+<section id="login" class="contatos">
+    <h2 class="contatos-titulo">
+        login/cadastro
+    </h2>
+    <form class="login" id="logar">
+        <div class="caixalogar"> 
+            <a href="formulario1.html" class="botao-form">Logar</a>
+        </div>    
+       
+    </form>
+</section>
+
 </body>
+<script src="script.js">
+</script>
 </html>

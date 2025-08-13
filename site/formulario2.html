@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulário</title>
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <style>
+        @charset "UTF-8";
+
+        body {
+            background-color: #060e81;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .box{
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+        fieldset{
+            display: grid;
+            gap: 10px;
+            border: 2px solid #060e81;
+            border-radius: 5px;
+        }
+        legend{
+            background-color: #060e81;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: 5px;
+        }
+        .acoes {
+        text-align: right;
+        }
+        input[type="submit"] {
+            background-color: #060e81;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="config.php" method="post" translate="no">
+            <fieldset>
+                <legend>
+                    <strong>Formulário de Cadastro</strong>
+                </legend>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="idnome" name="nome" required placeholder="Digite seu nome completo" class="input">
+
+                    <label for="gmail">E-mail:</label>
+                    <input type="email" id="idgmail" name="gmail" required placeholder="Digite seu e-mail" class="input">
+ 
+                    <label for="CPF">CPF:</label>
+                    <input type="text" id="idcpf" name="cpf" required placeholder="000.000.000-00" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="input">
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="idtelefone" name="telefone" required placeholder="Digite seu telefone" class="input">
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="idsenha" name="senha" required placeholder="Digite sua senha" class="input">
+
+                    <label for="senha">Confirme a Senha:</label>
+                    <input type="password" id="idconfirma_senha" name="confirma_senha" required placeholder="Confirme sua senha" class="input">
+
+                    <label for="data">Data de Nascimento:</label>
+                    <input type="date" id="iddata" name="data" required class="input">
+
+                <div class="generos">
+                    <p>Sexo:</p>
+                    <label for="idmasculino">Masculino</label>
+                    <input type="radio" id="idmasculino" name="genero" value="M"><br>
+                    <label for="idfeminino">Feminino</label>
+                    <input type="radio" id="idfeminino" name="genero" value="F"><br>
+                    <label for="idoutro">Outro</label>
+                    <input type="radio" id="idoutro" name="genero" value="O"><br>
+                </div>
+                <div class="acoes">
+                    <input type="submit" value="Cadastrar">
+                </div>
+            </fieldset>
+        </form>
+    </div> 
+</body>
+</html>
