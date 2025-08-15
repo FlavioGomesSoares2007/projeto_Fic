@@ -81,7 +81,7 @@ a{
             $stmt_insert->bind_param("sssisss", $nome, $gmail, $cpf, $telefone, $senha_hash, $data_nascimento, $sexo);
 
             if ($stmt_insert->execute()) {
-                echo "<p><strong>Cadastro realizado com sucesso!</strong></p>" . '<a href="index.html">Voltar</a>';
+                echo "<p><strong>Cadastro realizado com sucesso!</strong></p>" . '<a href="login.html">Voltar</a>';
             } else {
                 echo "<p><strong>Erro ao cadastrar:</strong></p> " .'<a href="formulario.html">Voltar</a>' . $stmt_insert->error;
             }
