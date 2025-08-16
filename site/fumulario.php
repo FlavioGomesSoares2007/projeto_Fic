@@ -6,34 +6,62 @@
     <title>Document</title>
 
     <style>
-        @charset "UTF-8";
+@charset "UTF-8";
 
 body {
     background-color: #060e81;
-    height: 100vh;
+    min-height: 102vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.box{
+
+.box {
     background-color: white;
-    width: 400px;
+    width: 100%;        
+    max-width: 400px;   
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
-a{
+
+/* estilo base do botão/link */
+a {
     color: white;
     text-decoration: none;
     background-color: #060e81;
     font-weight: bold;
     display: block;
-    margin-left: 300px;
     padding: 10px 20px;
     border-radius: 5px;
     text-align: center;
+    transition: background 0.3s;
+    margin: 20px auto 0 auto;
+    max-width: 150px;
+}
+
+a:hover {
+    background-color: #0041a8;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    .box {
+        padding: 20px;
+    }
+
+    a {
+        width: 100%; 
+        max-width: none;
+        margin: 20px 0 0 0;
+    }
 }
     </style>
 </head>
