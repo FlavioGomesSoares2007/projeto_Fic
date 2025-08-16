@@ -1,45 +1,76 @@
+@charset "UTF-8";
 
-        @charset "UTF-8";
+body {
+    background-image: linear-gradient(to bottom, #060e81, #1a73e8);
+    min-height: 102vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px; /* para não colar nas bordas em telas pequenas */
+    box-sizing: border-box;
+}
 
-        body {
-            background-image: linear-gradient(to bottom, #060e81, #1a73e8 );
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .box{
-            background-color: white;
-            width: 400px;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        }
-        fieldset{
-            display: grid;
-            gap: 10px;
-            border: 2px solid #060e81;
-            border-radius: 5px;
-        }
-        legend{
-            background-color: #060e81;
-            border-radius: 5px;
-            color: #ffffff;
-            padding: 5px;
-        }
-        .acoes {
-        text-align: right;
-        }
-        input[type="submit"] {
-            background-color: #060e81;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+.box {
+    background-color: white;
+    width: 100%;            
+    max-width: 400px;       
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+fieldset {
+    display: grid;
+    gap: 10px;
+    border: 2px solid #060e81;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+legend {
+    background-color: #060e81;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 5px 10px;
+}
+
+.acoes {
+    text-align: right;
+}
+
+input[type="submit"] {
+    background-color: #060e81;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    legend {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    input[type="submit"] {
+        width: 100%; 
+        text-align: center;
+    }
+}

@@ -36,10 +36,13 @@ body {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 10rem;
-    margin-top: 20px;
+    margin-top: 5px;
     
     
+}
+li {
+    margin-left: auto;
+    margin-right: auto;
 }
 .menu-link {
     text-decoration: none;
