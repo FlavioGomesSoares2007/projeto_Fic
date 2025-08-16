@@ -37,18 +37,18 @@
                 if (password_verify($senhaDigitada, $user['senha'])) {
                     $_SESSION['usuario_id'] = $user['id'];
                     $_SESSION['usuario_nome'] = $user['nome'];
-                    echo "<p>Bem-vindo, " . htmlspecialchars($user['nome']) . " 😎</p>";
+                    echo "<p>Bem-vindo, " . htmlspecialchars($user['nome']) . " 😎</p>". '<a href="#">continuar</a>';
                 } else {
-                    echo "<p>Senha incorreta!</p>";
+                    echo "<p>Senha incorreta!</p>" .'<a href="login.html">voltar</a>' ;
                 }
             } else {
-                echo "<p>Usuário não encontrado!</p>";
+                echo "<p>Usuário não encontrado!</p>". '<a href="login.html">voltar</a>';
             }
 
             $stmt->close();
             $conexao->close();
         ?>
-        <a href="#">continuar</a>
+
     </div>
 </body>
 </html>

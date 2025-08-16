@@ -29,18 +29,20 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* estilo base do botão/link */
+p{
+    text-align: center;
+}
 a {
     color: white;
     text-decoration: none;
     background-color: #060e81;
     font-weight: bold;
     display: block;
-    padding: 10px 20px;
+    padding: 10px 5px;
     border-radius: 5px;
     text-align: center;
     transition: background 0.3s;
-    margin: 20px auto 0 auto;
+    margin: auto;
     max-width: 150px;
 }
 
